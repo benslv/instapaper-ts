@@ -21,6 +21,10 @@
 		"library"
 	],
 	"author": "Ben Silverman (bensilverman.co.uk)",
+	"homepage": "https://github.com/benslv/instapaper-ts",
+	"bugs": {
+		"url": "https://github.com/benslv/instapaper-ts/issues"
+	},
 	"license": "MIT",
 	"packageManager": "pnpm@10.4.1",
 	"dependencies": {
