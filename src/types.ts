@@ -1,4 +1,4 @@
-type Bookmark = {
+export type Bookmark = {
 	type: "bookmark";
 	hash: string;
 	description: string;
@@ -13,7 +13,7 @@ type Bookmark = {
 	starred: "0" | "1";
 };
 
-type Folder = {
+export type Folder = {
 	type: "folder";
 	position: number;
 	folder_id: number;
@@ -24,12 +24,12 @@ type Folder = {
 	public: false | 1;
 };
 
-type Tag = {
+export type Tag = {
 	id: number;
 	name: string;
 };
 
-type Highlight = {
+export type Highlight = {
 	type: "highlight";
 	highlight_id: number;
 	text: string;
@@ -39,20 +39,20 @@ type Highlight = {
 	position: number;
 };
 
-type ListParams = Partial<{
+export type ListParams = Partial<{
 	limit: number;
 	folder_id: "unread" | "starred" | "archive" | (string & {});
 	have: string;
 	highlights: string;
 }>;
 
-type UpdateReadProgressParams = {
+export type UpdateReadProgressParams = {
 	bookmark_id: string;
 	progress: number;
 	progress_timestamp: number;
 };
 
-type AddBookmarkParams = {
+export type AddBookmarkParams = {
 	url: string;
 	title?: string;
 	description?: string;
@@ -66,7 +66,7 @@ type AddBookmarkParams = {
 	content?: string;
 };
 
-type AddHighlightParams = {
+export type AddHighlightParams = {
 	bookmark_id: string;
 	text: string;
 	position?: number;

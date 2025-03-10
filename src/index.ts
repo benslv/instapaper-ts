@@ -2,6 +2,16 @@ import assert from "node:assert";
 import crypto from "node:crypto";
 import OAuth from "oauth-1.0a";
 
+import type {
+	AddBookmarkParams,
+	AddHighlightParams,
+	Bookmark,
+	Folder,
+	Highlight,
+	ListParams,
+	UpdateReadProgressParams,
+} from "./types.js";
+
 export class Instapaper {
 	private baseUrl = "https://www.instapaper.com/api";
 	private authUrl = this.baseUrl + "/1/oauth/access_token";
