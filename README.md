@@ -30,6 +30,11 @@ console.log(bookmarks);
 
 See [Full API](https://www.instapaper.com/api) documentation for expected parameters and return types.
 
+### Authentication
+
+- setCredentials
+- verifyCredentials
+
 ### Bookmarks
 
 - list
