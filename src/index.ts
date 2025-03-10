@@ -41,11 +41,6 @@ export class Instapaper {
 		});
 	}
 
-	setCredentials = (username: string, password: string): void => {
-		this.username = username;
-		this.password = password;
-	};
-
 	private makeRequest = async (
 		url: string,
 		method: string = "POST",
@@ -126,6 +121,13 @@ export class Instapaper {
 		const url = this.baseUrl + endpoint;
 		return this.makeRequest(url, "POST", params, this.token);
 	};
+
+	setCredentials = (username: string, password: string): void => {
+		this.username = username;
+		this.password = password;
+	};
+
+	verifyCredentials = () => this.request<[User]>("/1/account/verify_credentials");
 
 	bookmarks = {
 		list: (params: ListParams = {}) =>

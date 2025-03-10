@@ -1,37 +1,37 @@
 {
-	"name": "instapaper-ts",
-	"version": "1.0.0",
-	"type": "module",
-	"description": "A type-safe API client for Instapaper.",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"files": [
-		"/dist"
-	],
-	"scripts": {
-		"build": "tsup",
-		"dev": "tsup --watch"
-	},
-	"keywords": [
-		"instapaper",
-		"read",
-		"later",
-		"typescript",
-		"library"
-	],
-	"author": "Ben Silverman (bensilverman.co.uk)",
-	"homepage": "https://github.com/benslv/instapaper-ts",
-	"bugs": {
-		"url": "https://github.com/benslv/instapaper-ts/issues"
-	},
-	"license": "MIT",
-	"packageManager": "pnpm@10.4.1",
-	"dependencies": {
-		"oauth-1.0a": "^2.2.6"
-	},
-	"devDependencies": {
-		"@types/node": "^22.13.5",
-		"tsup": "^8.4.0",
-		"typescript": "^5.8.2"
-	}
+  "name": "instapaper-ts",
+  "version": "1.1.0",
+  "type": "module",
+  "description": "A type-safe API client for Instapaper.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "keywords": [
+    "instapaper",
+    "read",
+    "later",
+    "typescript",
+    "library"
+  ],
+  "author": "Ben Silverman (bensilverman.co.uk)",
+  "homepage": "https://github.com/benslv/instapaper-ts",
+  "bugs": {
+    "url": "https://github.com/benslv/instapaper-ts/issues"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@10.4.1",
+  "dependencies": {
+    "oauth-1.0a": "^2.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  }
 }
