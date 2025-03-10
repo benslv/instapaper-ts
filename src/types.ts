@@ -1,3 +1,9 @@
+export type User = {
+	type: "user";
+	user_id: number;
+	username: string;
+};
+
 export type Bookmark = {
 	type: "bookmark";
 	hash: string;
@@ -37,6 +43,16 @@ export type Highlight = {
 	bookmark_id: Bookmark["bookmark_id"];
 	time: number;
 	position: number;
+};
+
+export type Error = {
+	type: "error";
+	error_code: number;
+	message: string;
+};
+
+export type Meta = {
+	type: "meta";
 };
 
 export type ListParams = Partial<{

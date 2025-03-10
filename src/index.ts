@@ -6,10 +6,13 @@ import type {
 	AddBookmarkParams,
 	AddHighlightParams,
 	Bookmark,
+	Error,
 	Folder,
 	Highlight,
 	ListParams,
+	Meta,
 	UpdateReadProgressParams,
+	User,
 } from "./types.js";
 
 export class Instapaper {
@@ -126,7 +129,10 @@ export class Instapaper {
 
 	bookmarks = {
 		list: (params: ListParams = {}) =>
-			this.request("/1/bookmarks/list", params),
+			this.request<(User | Bookmark | Folder | Error | Meta)[]>(
+				"/1/bookmarks/list",
+				params
+			),
 
 		updateReadProgress: (params: UpdateReadProgressParams) =>
 			this.request<[Bookmark]>(
