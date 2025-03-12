@@ -26,7 +26,19 @@ export class Instapaper {
 
 	private token?: OAuth.Token;
 
-	constructor(consumerKey: string, consumerSecret: string) {
+	constructor({
+		consumerKey,
+		consumerSecret,
+		username,
+		password,
+		token,
+	}: {
+		consumerKey: string;
+		consumerSecret: string;
+		username?: string;
+		password?: string;
+		token?: OAuth.Token;
+	}) {
 		this.oauth = new OAuth({
 			consumer: {
 				key: consumerKey,
@@ -39,11 +51,14 @@ export class Instapaper {
 					.update(base_string)
 					.digest("base64"),
 		});
+
+		this.username = username;
+		this.password = password;
+		this.token = token;
 	}
 
 	private makeRequest = async (
 		url: string,
-		method: string = "POST",
 		params: Record<string, any> = {},
 		token?: OAuth.Token
 	): Promise<any> => {
