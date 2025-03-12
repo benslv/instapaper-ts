@@ -56,7 +56,7 @@ export class Instapaper {
 			this.oauth.authorize(
 				{
 					url,
-					method,
+					method: "POST",
 					data: params,
 				},
 				token
@@ -64,7 +64,7 @@ export class Instapaper {
 		);
 
 		const response = await fetch(url, {
-			method,
+			method: "POST",
 			headers: new Headers({ ...headers }),
 			body: form,
 		});
@@ -94,11 +94,7 @@ export class Instapaper {
 			x_auth_mode: "client_auth",
 		};
 
-		const responseText = await this.makeRequest(
-			this.authUrl,
-			"POST",
-			params
-		);
+		const responseText = await this.makeRequest(this.authUrl, params);
 
 		const data = new URLSearchParams(responseText as string);
 		const key = data.get("oauth_token");
@@ -119,7 +115,7 @@ export class Instapaper {
 		}
 
 		const url = this.baseUrl + endpoint;
-		return this.makeRequest(url, "POST", params, this.token);
+		return this.makeRequest(url, params, this.token);
 	};
 
 	setCredentials = (username: string, password: string): void => {
@@ -127,7 +123,8 @@ export class Instapaper {
 		this.password = password;
 	};
 
-	verifyCredentials = () => this.request<[User]>("/1/account/verify_credentials");
+	verifyCredentials = () =>
+		this.request<[User]>("/1/account/verify_credentials");
 
 	bookmarks = {
 		list: (params: ListParams = {}) =>
