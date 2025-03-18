@@ -97,7 +97,7 @@ export class Instapaper {
 		}
 	};
 
-	private getAccessToken = async (): Promise<OAuth.Token> => {
+	public fetchToken = async (): Promise<OAuth.Token> => {
 		assert(
 			this.username && this.password,
 			"Please set username and password with setCredentials()."
@@ -120,13 +120,12 @@ export class Instapaper {
 			"There was an error fetching the token. One or both of key and secret is null."
 		);
 
-		this.token = { key, secret };
-		return this.token;
+		return { key, secret };
 	};
 
 	private request = async <T>(endpoint: string, params = {}): Promise<T> => {
 		if (!this.token) {
-			this.token = await this.getAccessToken();
+			this.token = await this.fetchToken();
 		}
 
 		const url = this.baseUrl + endpoint;
@@ -136,6 +135,18 @@ export class Instapaper {
 	setCredentials = (username: string, password: string): void => {
 		this.username = username;
 		this.password = password;
+	};
+
+	withCredentials = (username: string, password: string): this => {
+		this.setCredentials(username, password);
+
+		return this;
+	};
+
+	withToken = (token: OAuth.Token): this => {
+		this.token = token;
+
+		return this;
 	};
 
 	verifyCredentials = () =>
