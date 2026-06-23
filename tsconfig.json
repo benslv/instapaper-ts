@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"ignoreDeprecations": "6.0",
 		/* Base Options: */
 		"esModuleInterop": true,
 		"skipLibCheck": true,
@@ -24,6 +25,7 @@
 		"declaration": true,
 
 		/* If your code doesn't run in the DOM: */
-		"lib": ["es2022"]
+		"lib": ["ES2022"],
+		"types": ["node"]
 	}
 }
