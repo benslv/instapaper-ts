@@ -10,9 +10,9 @@ npm install instapaper-ts
 
 ## Authentication
 
-Instapaper uses OAuth 1.0a with xAuth. You'll need a **consumer key and secret** from Instapaper, plus your account **username and password** — but only to perform a one-time token exchange. After that, store the token and use it directly for all future requests.
+Instapaper uses OAuth 1.0a with xAuth. You'll need a **consumer key and secret** from Instapaper, plus your account **username and password**, but only to perform a one-time token exchange. After that, store the token and use it directly for all future requests.
 
-### First run — exchange credentials for a token
+### 1. Exchange credentials for a token
 
 Call `Instapaper.fetchToken(...)` to authenticate with your username and password. This performs the xAuth token exchange and returns the result. Once you have the token, persist it so you don't repeat the exchange on every run.
 
@@ -30,7 +30,7 @@ const token = await Instapaper.fetchToken({
 await saveToken(token); // e.g. write to disk, a secrets store, a session cookie etc.
 ```
 
-### Subsequent runs — initialise from a cached token
+### 2. Initialise from a cached token
 
 Once you have a token, you can then use it to instantiate the Instapaper client. This allows you to reuse your token in different parts of your app, without having to reauthenticate every time with your username and password.
 
